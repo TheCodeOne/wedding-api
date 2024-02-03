@@ -1,5 +1,4 @@
-import { Type } from 'class-transformer';
-import { ArrayMaxSize, ArrayMinSize, IsArray, IsBoolean, IsEnum, IsNotEmpty, IsString, IsUUID, MaxLength, MinLength, ValidateNested } from 'class-validator';
+import { IsBoolean, IsOptional, IsString, MaxLength, MinLength } from 'class-validator';
 
 export enum Gender {
   MALE = 'MALE',
@@ -7,30 +6,17 @@ export enum Gender {
 }
 
 export class UpdateGuestsDto {
-  @IsUUID()
-  @IsNotEmpty()
-  readonly uuid: string;
-
-  @IsArray()
-  @ValidateNested({ each: true })
-  @ArrayMinSize(1)
-  @ArrayMaxSize(2)
-  @Type(() => Guest)
-  readonly guests: Guest[];
-}
-
-class Guest {
   @IsString()
-  @IsNotEmpty()
-  @MinLength(4)
+  @IsOptional()
+  @MinLength(2)
   @MaxLength(40)
-  name: string;
-
-  @IsEnum(Gender)
-  @IsNotEmpty()
-  gender: Gender;
+  plusOne: string;
 
   @IsBoolean()
-  @IsNotEmpty()
+  @IsOptional()
+  hasPlusOne: boolean;
+
+  @IsBoolean()
+  @IsOptional()
   willAttend: boolean;
 }

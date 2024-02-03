@@ -15,11 +15,19 @@ export class Guests {
   guests: {
     name: string;
     gender: number;
-    willAttend: boolean;
   }[];
 
   @Prop()
   isPlusOneEligable: boolean;
+
+  @Prop()
+  plusOne: string;
+
+  @Prop()
+  hasPlusOne: boolean;
+
+  @Prop()
+  willAttend: boolean;
 }
 
 export const GuestsSchema = SchemaFactory.createForClass(Guests);
