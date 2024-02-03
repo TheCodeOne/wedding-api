@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { ArrayMaxSize, ArrayMinSize, IsArray, IsEnum, IsNotEmpty, IsString, IsUUID, MaxLength, MinLength, ValidateNested } from 'class-validator';
+import { ArrayMaxSize, ArrayMinSize, IsArray, IsBoolean, IsEnum, IsNotEmpty, IsString, IsUUID, MaxLength, MinLength, ValidateNested } from 'class-validator';
 
 export enum Gender {
   MALE = 'MALE',
@@ -29,4 +29,8 @@ class Guest {
   @IsEnum(Gender)
   @IsNotEmpty()
   gender: Gender;
+
+  @IsBoolean()
+  @IsNotEmpty()
+  willAttend: boolean;
 }

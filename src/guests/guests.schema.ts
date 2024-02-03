@@ -15,6 +15,7 @@ export class Guests {
   guests: {
     name: string;
     gender: number;
+    willAttend: boolean;
   }[];
 
   @Prop()
