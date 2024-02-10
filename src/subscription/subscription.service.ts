@@ -8,7 +8,8 @@ export class SubscriptionService {
   constructor(@InjectModel(Subscription.name) private subscriptionModel: Model<Subscription>) {}
 
   async add(newSubscription): Promise<Subscription> {
-    return await this.subscriptionModel.create(newSubscription);
+    const newSubscriptionKey = newSubscription.keys.p256dh;
+    return await this.subscriptionModel.findOneAndUpdate({ keys: { p256dh: newSubscriptionKey } }, newSubscription, { upsert: true }).exec();
   }
 
   async findAll(): Promise<Subscription[]> {
