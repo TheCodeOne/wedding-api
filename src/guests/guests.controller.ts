@@ -10,7 +10,7 @@ export class GuestsController {
 
   @Patch('/:uuid')
   async update(@Param('uuid') uuid: string, @Body() updateGuestsDto: UpdateGuestsDto) {
-    const guests = await this.guestsService.findOne(uuid);
+    const guests = await this.guestsService.findByUuid(uuid);
     if (!guests) {
       throw new BadRequestException(getRandomPhrase());
     }
@@ -21,7 +21,7 @@ export class GuestsController {
 
   @Get('/:uuid')
   async findOne(@Param('uuid') uuid: string): Promise<Guests> {
-    const guests = await this.guestsService.findOne(uuid);
+    const guests = await this.guestsService.findByUuid(uuid);
     if (!guests) {
       throw new BadRequestException(getRandomPhrase());
     }

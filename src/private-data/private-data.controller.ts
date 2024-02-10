@@ -18,7 +18,7 @@ export class PrivateDataController {
 
   @Get('/:uuid')
   async findOne(@Param('uuid') uuid: string): Promise<PrivateData> {
-    const guests = await this.guestsService.findOne(uuid);
+    const guests = await this.guestsService.findByUuid(uuid);
     if (!guests) {
       throw new BadRequestException(getRandomPhrase());
     }

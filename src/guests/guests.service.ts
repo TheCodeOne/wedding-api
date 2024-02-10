@@ -12,8 +12,12 @@ export class GuestsService {
     return this.guestsModel.findOneAndUpdate({ uuid }, updateGuestsDto, { upsert: true }).exec();
   }
 
-  async findOne(uuid: string): Promise<Guests> {
+  async findByUuid(uuid: string): Promise<Guests> {
     return this.guestsModel.findOne({ uuid }).select('-_id -__v').exec();
+  }
+
+  async findByCode(code: string): Promise<Guests> {
+    return this.guestsModel.findOne({ code }).select('-_id -__v').exec();
   }
 
   async findAll(): Promise<Guests[]> {
