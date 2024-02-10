@@ -12,6 +12,6 @@ export class SubscriptionService {
   }
 
   async findAll(): Promise<Subscription[]> {
-    return this.subscriptionModel.find().exec();
+    return this.subscriptionModel.find({}, '-_id -__v -keys._id').exec();
   }
 }

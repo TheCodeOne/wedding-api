@@ -9,6 +9,8 @@ export class SubscriptionController {
 
   @Post('/')
   async addSubscription(@Body() subscription: SubscriptionDto): Promise<void> {
+    console.log('New subscription!');
+    console.log(subscription);
     await this.subscriptionService.add(subscription);
 
     return;
@@ -42,7 +44,7 @@ export class SubscriptionController {
     try {
       await Promise.all(subscriptions.map((sub) => webPush.sendNotification(sub, JSON.stringify(notificationPayload))));
     } catch (error) {
-      throw new Error('something went wrong');
+      throw new Error(error);
     }
   }
 }
