@@ -12,7 +12,8 @@ import { VersionModule } from './version/version.module';
     ThrottlerModule.forRoot([
       {
         ttl: 30000,
-        limit: 3,
+        limit: 4,
+        skipIf: () => process.env.ENV === 'dev',
       },
     ]),
     MongooseModule.forRoot(process.env.MONGO_DB_CONNECTION_STRING),
