@@ -5,6 +5,7 @@ import { PrivateDataModule } from './private-data/private-data.module';
 import { CodeModule } from './code/code.module';
 import { SubscriptionModule } from './subscription/subscription.module';
 import { ThrottlerModule } from '@nestjs/throttler';
+import { VersionModule } from './version/version.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
     PrivateDataModule,
     CodeModule,
     SubscriptionModule,
+    VersionModule,
   ],
 })
 export class AppModule {}
