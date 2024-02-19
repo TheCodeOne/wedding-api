@@ -9,7 +9,7 @@ export class GuestsService {
   constructor(@InjectModel(Guests.name) private guestsModel: Model<Guests>) {}
 
   async update(uuid, updateGuestsDto: UpdateGuestsDto): Promise<Guests> {
-    return this.guestsModel.findOneAndUpdate({ uuid }, updateGuestsDto, { upsert: true }).exec();
+    return this.guestsModel.findOneAndUpdate({ uuid }, { ...updateGuestsDto, lastUpdated: new Date().toISOString() }, { upsert: true }).exec();
   }
 
   async findByUuid(uuid: string): Promise<Guests> {

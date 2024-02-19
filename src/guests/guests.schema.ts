@@ -28,6 +28,9 @@ export class Guests {
 
   @Prop()
   willAttend: boolean;
+
+  @Prop()
+  lastUpdated: string;
 }
 
 export const GuestsSchema = SchemaFactory.createForClass(Guests);
