@@ -1,6 +1,6 @@
 import { BadRequestException, Body, Controller, Get, Param, Patch } from '@nestjs/common';
-import { Guests } from 'src/guests/guests.schema';
-import { GuestsService } from 'src/guests/guests.service';
+import { Guests } from 'src/routes/guests/guests.schema';
+import { GuestsService } from 'src/routes/guests/guests.service';
 import { UpdateGuestsDto } from './guests.dto';
 import { getRandomPhrase } from 'src/utils';
 

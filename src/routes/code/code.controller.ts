@@ -1,5 +1,5 @@
 import { BadRequestException, Controller, Get, Param } from '@nestjs/common';
-import { GuestsService } from 'src/guests/guests.service';
+import { GuestsService } from 'src/routes/guests/guests.service';
 import { getRandomPhrase } from 'src/utils';
 
 @Controller('code')

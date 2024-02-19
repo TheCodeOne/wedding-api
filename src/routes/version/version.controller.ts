@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import * as packageJson from '../../package.json';
+import * as packageJson from '../../../package.json';
 
 @Controller('version')
 export class VersionController {
