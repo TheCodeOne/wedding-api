@@ -23,8 +23,4 @@ export class GuestsService {
   async findAll(): Promise<Guests[]> {
     return this.guestsModel.find().exec();
   }
-
-  async findAllAttending(): Promise<Guests[]> {
-    return this.guestsModel.find({ lastUpdated: { $exists: true } }).exec();
-  }
 }
