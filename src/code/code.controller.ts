@@ -8,7 +8,7 @@ export class CodeController {
 
   @Get('/:code')
   async findByCode(@Param('code') code: string): Promise<{ uuid: string }> {
-    const guests = await this.guestsService.findByCode(code);
+    const guests = await this.guestsService.findByCode(code.toUpperCase());
     if (!guests) {
       throw new BadRequestException(getRandomPhrase());
     }
